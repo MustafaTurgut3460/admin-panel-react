@@ -46,3 +46,7 @@ body {
   --color-background: #f6f6f9;
   --box-shadow: 0 2rem 3rem var(--color-light);
 }
+
+.profile-avatar:hover{
+  cursor: pointer;
+}

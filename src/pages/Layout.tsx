@@ -11,13 +11,13 @@ const Layout = () => {
             <Col xl={3} lg={4} md={4} xs={0} style={{position: "fixed"}}>
                 <Navbar />
             </Col>
-            <Col offset={3} xl={21} md={20} xs={23}>
+            <Col offset={2} xl={22} md={21} xs={23}>
                 <Topbar />
                 <Row>
                     <Col xs={24} lg={15} xl={19}>
                         <Outlet />
                     </Col>
-                    <Col xs={16} lg={9} xl={5}>
+                    <Col xs={24} lg={9} xl={5}>
                         <Reminders />
                     </Col>
                 </Row>

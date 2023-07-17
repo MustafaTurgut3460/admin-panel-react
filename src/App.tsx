@@ -1,7 +1,6 @@
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Dashboard from "./pages/Dashboard";
-import Customers from "./pages/Customers";
 import Projects from "./pages/Projects";
 import Team from "./pages/Team";
 import Users from "./pages/Users";
@@ -9,6 +8,9 @@ import Tasks from "./pages/Tasks";
 import Settings from "./pages/Settings";
 import Profile from "./pages/Profile";
 import { ConfigProvider, theme } from "antd";
+import Database from "./pages/Database";
+import OtherAuthors from "./pages/OutherAuthors";
+import NotFound from "./pages/NotFound";
 
 function App() {
 
@@ -23,15 +25,16 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Dashboard />} />
-              <Route path="customers" element={<Customers />} />
-              <Route path="orders" element={<Customers />} />
+              <Route path="database" element={<Database />} />
               <Route path="projects" element={<Projects />} />
               <Route path="team" element={<Team />} />
+              <Route path="other-authors" element={<OtherAuthors />} />
               <Route path="users" element={<Users />} />
               <Route path="tasks" element={<Tasks />} />
             </Route>
             <Route path="/settings" element={<Settings />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<NotFound/>} />
           </Routes>
         </BrowserRouter><Outlet />
       </ConfigProvider>

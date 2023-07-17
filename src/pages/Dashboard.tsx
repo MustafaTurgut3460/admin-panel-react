@@ -3,12 +3,14 @@ import DashboardLineChart from "../components/Charts/DashboardLineChart";
 import DashboardPieChart from "../components/Charts/DashboardPieChart";
 import RecentPremiumCustomersTable from "../components/DashboardComponents/RecentPremimumCustomersTable";
 import useWindowDimensions from "../hooks/window-dimention";
+import DashboardBarChart from "../components/Charts/DashboardBarChart";
+import DashboardAreaChart from "../components/Charts/DashboardAreaChart";
 
 const { Paragraph, Title } = Typography;
 
 const Dashboard = () => {
 
-    const {width} = useWindowDimensions();
+    const { width } = useWindowDimensions();
 
     return (
         <><Row justify={'space-around'} style={{ padding: "1rem" }}>
@@ -19,7 +21,7 @@ const Dashboard = () => {
                         <h2>45,678</h2>
                     </Col>
                     <Col span={12} style={{ display: "flex", justifyContent: "end" }}>
-                        <Progress type="dashboard" percent={82} size={84} format={(percent) => `${percent}%`}/>
+                        <Progress type="dashboard" percent={82} size={84} format={(percent) => `${percent}%`} />
                     </Col>
                 </Row>
             </Col>
@@ -46,22 +48,32 @@ const Dashboard = () => {
                 </Row>
             </Col>
         </Row>
-        <Row style={{ padding: "2rem" }} justify={'space-between'}>
-            <Col xs={24} xl={15} className="card">
-                <span style={{fontSize: "1rem"}}>Aylara Göre Erişim Miktarı</span>
-                <DashboardLineChart />
-            </Col>
-            <Col xs={24} xl={8} className="card">
-                <DashboardPieChart />
-            </Col>
-        </Row>
-        <Row style={{padding: "1rem 2rem"}}>
-            <Col span={24} className={width > 576 ? "card" : ""} style={{padding: "1.5rem"}}>
-                <h3>Recent Premimum Customers</h3>
-                <br />
-                <RecentPremiumCustomersTable/>
-            </Col>
-        </Row>
+            <Row style={{ padding: "2rem" }} justify={'space-between'}>
+                <Col xs={24} xl={15} className="card">
+                    <span style={{ fontSize: "1rem" }}>Aylara Göre Erişim Miktarı</span>
+                    <DashboardLineChart />
+                </Col>
+                <Col xs={24} xl={8} className="card">
+                    <DashboardPieChart />
+                </Col>
+            </Row>
+            <Row style={{ padding: "2rem" }} justify={'space-between'}>
+                <Col xs={24} xl={12} className="card">
+                    <span style={{ fontSize: "1rem" }}>Aylara Göre Yeni Kullanıcı Sayısı</span>
+                    <DashboardAreaChart />
+                </Col>
+                <Col xs={24} xl={11} className="card">
+                    <span style={{ fontSize: "1rem" }}>Aylara Göre Veritabanı İşlemleri</span>
+                    <DashboardBarChart />
+                </Col>
+            </Row>
+            <Row style={{ padding: "1rem 2rem" }}>
+                <Col span={24} className={width > 576 ? "card" : ""} style={{ padding: "1.5rem" }}>
+                    <h3>Recent Premimum Customers</h3>
+                    <br />
+                    <RecentPremiumCustomersTable />
+                </Col>
+            </Row>
         </>
     )
 }
