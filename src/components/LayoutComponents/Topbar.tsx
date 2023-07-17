@@ -2,6 +2,8 @@ import { BellOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Col, Row, Select, Space, Switch } from "antd";
 import Search from "antd/es/input/Search";
 import avatar1 from "../../assets/images/avatar1.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
 
 const Topbar = () => {
 
@@ -22,7 +24,7 @@ const Topbar = () => {
                         size="small"
                     />
                     <Switch checkedChildren="Light" unCheckedChildren="Dark" />
-                    <Avatar size={36} icon={<BellOutlined />} />
+                    <Avatar size={36} icon={<FontAwesomeIcon icon={faBell} />} />
                     <Avatar size={36} icon={<img src={avatar1} />} />
                 </Space>
             </Col>

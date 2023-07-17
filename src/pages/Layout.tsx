@@ -14,10 +14,10 @@ const Layout = () => {
             <Col offset={3} xl={21} md={20} xs={23}>
                 <Topbar />
                 <Row>
-                    <Col xs={19}>
+                    <Col xs={24} lg={15} xl={19}>
                         <Outlet />
                     </Col>
-                    <Col xs={5}>
+                    <Col xs={16} lg={9} xl={5}>
                         <Reminders />
                     </Col>
                 </Row>

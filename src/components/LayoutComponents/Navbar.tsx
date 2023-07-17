@@ -62,7 +62,7 @@ const Navbar = () => {
                 defaultOpenKeys={['sub1']}
                 mode="inline"
                 theme="dark"
-                inlineCollapsed={width < 992}
+                inlineCollapsed={width < 1200}
                 items={items}
                 style={{backgroundColor: "var(--color-white)", borderRadius: "1rem", height: "90vh"}}
             />

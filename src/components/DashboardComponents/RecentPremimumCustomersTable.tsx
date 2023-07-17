@@ -1,6 +1,7 @@
 import React from 'react';
-import { Space, Table, Tag } from 'antd';
+import { Button, Space, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import useWindowDimensions from '../../hooks/window-dimention';
 
 interface DataType {
   key: string;
@@ -15,7 +16,6 @@ const columns: ColumnsType<DataType> = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: (text) => <a>{text}</a>,
   },
   {
     title: 'Age',
@@ -52,8 +52,7 @@ const columns: ColumnsType<DataType> = [
     key: 'action',
     render: (_, record) => (
       <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
+        <a>See Details</a>
       </Space>
     ),
   },
@@ -105,7 +104,8 @@ const data: DataType[] = [
 ];
 
 const RecentPremiumCustomersTable = () => {
-    return <Table columns={columns} dataSource={data} style={{backgroundColor: "var(--color-white)"}}/>
+  const { width } = useWindowDimensions();
+  return <Table columns={columns} dataSource={data} style={{ backgroundColor: width > 576 ? "var(--color-white)" : "" }} />
 }
 
 export default RecentPremiumCustomersTable;
