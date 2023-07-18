@@ -12,6 +12,7 @@ const Team = () => {
                     <TeamUserItem name={"Emre Ballı"} email={"emre.balli@gmail.com"} role={"Senior Devoloper"} color={"green"} />
                     <TeamUserItem name={"Zeynep Turgut"} email={"zeynep.turgut3460@gmail.com"} role={"Junior Devoloper"} color={"geekblue"} />
                     <TeamUserItem name={"Enes Turgut"} email={"enesturgut34@gmail.com"} role={"Manager"} color={"red"} />
+                    <TeamUserItem name={"Ali Başpınar"} email={"alibaspinar@gmail.com"} role={"Server Management"} color={"orange"} />
                 </Row>
             </Col>
         </Row>

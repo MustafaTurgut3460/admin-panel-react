@@ -29,10 +29,7 @@ const items: MenuItem[] = [
     getItem(<Link to={'/users'}>Users</Link>, '3', <FontAwesomeIcon icon={faUserPlus} />),
     getItem(<Link to={'/database'}>Database</Link>, '8', <FontAwesomeIcon icon={faDatabase} />),
     getItem(<Link to={'/projects'}>Projects</Link>, '2', <FontAwesomeIcon icon={faDiagramProject} />),
-    getItem('Team', 'sub1', <FontAwesomeIcon icon={faPeopleGroup} />, [
-        getItem(<Link to={'/team'}>My Team</Link>, '5'),
-        getItem(<Link to={'/other-authors'}>Other Authors</Link>, '6'),
-    ]),
+    getItem(<Link to={'/team'}>Team</Link>, '5', <FontAwesomeIcon icon={faPeopleGroup} />),
     getItem(<Link to={'/tasks'}>Tasks</Link>, '7', <FontAwesomeIcon icon={faListCheck} />),
 ];
 
@@ -42,7 +39,6 @@ const navs: Map<string, string[]> = new Map([
     ['/database', ['8']],
     ['/projects', ['2']],
     ['/team', ['5']],
-    ['/', ['1']],
     ['/tasks', ['7']],
 ])
 
