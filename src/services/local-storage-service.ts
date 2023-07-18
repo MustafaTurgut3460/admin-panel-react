@@ -7,3 +7,13 @@ export const getCurrentLang = () => {
 export const setCurrentLang = (lang: string) => {
     localStorage.setItem("lang", lang);
 }
+
+export const setThemeToLocalStorage = (theme: string) => {
+    localStorage.setItem("theme", theme)
+}
+
+export const getThemeFromStorage = () => {
+    const theme = localStorage.getItem("theme");
+
+    return theme ? theme : "dark";
+}

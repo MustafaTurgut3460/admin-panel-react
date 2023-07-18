@@ -109,13 +109,13 @@ const Tasks = () => {
                 </Col>
                 <Col span={23}>
                     <Row justify={'space-between'} style={{ marginTop: "2rem" }}>
-                        <Col span={7} style={{ backgroundColor: "rgb(255, 215, 0, 0.05)", borderRadius: "0.5rem", padding: "1rem" }}>
+                        <Col xl={7} xs={23} style={{ backgroundColor: "rgb(255, 215, 0, 0.05)", borderRadius: "0.5rem", padding: "1rem", marginTop: "1rem" }}>
                             <TaskSection tasks={tasks} setTasks={setTasks} title="Todo" type={TaskTypes.TODO} />
                         </Col>
-                        <Col span={7} style={{ backgroundColor: "rgb(82, 115, 224, 0.05)", borderRadius: "0.5rem", padding: "1rem" }}>
+                        <Col xl={7} xs={23} style={{ backgroundColor: "rgb(82, 115, 224, 0.05)", borderRadius: "0.5rem", padding: "1rem", marginTop: "1rem" }}>
                             <TaskSection tasks={tasks} setTasks={setTasks} title="In Progress" type={TaskTypes.PROGRESS} />
                         </Col>
-                        <Col span={7} style={{ backgroundColor: "rgb(106, 190, 57, 0.05)", borderRadius: "0.5rem", padding: "1rem" }}>
+                        <Col xl={7} xs={23} style={{ backgroundColor: "rgb(106, 190, 57, 0.05)", borderRadius: "0.5rem", padding: "1rem", marginTop: "1rem" }}>
                             <TaskSection tasks={tasks} setTasks={setTasks} title="Complated" type={TaskTypes.COMPLATED} />
                         </Col>
                     </Row>

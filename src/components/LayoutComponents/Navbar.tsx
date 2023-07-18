@@ -1,6 +1,6 @@
 import type { MenuProps } from 'antd';
 import { Button, Menu } from 'antd';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import useWindowDimensions from '../../hooks/window-dimention';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDatabase, faDiagramProject, faGauge, faListCheck, faPeopleGroup, faUserPlus } from '@fortawesome/free-solid-svg-icons';
@@ -43,7 +43,13 @@ const navs: Map<string, string[]> = new Map([
     ['/tasks', ['7']],
 ])
 
-const Navbar: React.FC<ThemeProps> = ({light, setLight}) => {
+interface NavbarProps{
+    light: boolean,
+    setLight: Dispatch<SetStateAction<boolean>>
+    inDrawer: boolean
+}
+
+const Navbar: React.FC<NavbarProps> = ({light, setLight, inDrawer}) => {
 
     const { width } = useWindowDimensions();
     const location = useLocation();
@@ -54,7 +60,7 @@ const Navbar: React.FC<ThemeProps> = ({light, setLight}) => {
                 defaultSelectedKeys={navs.get(location.pathname)}
                 mode="inline"
                 theme= {light ? "light" : "dark"}
-                inlineCollapsed={width < 1200}
+                inlineCollapsed={(!inDrawer && width < 1200)}
                 items={items}
                 style={{ backgroundColor: "var(--color-white)", color: "var(--color-dark)" ,borderRadius: "1rem", height: "90vh" }}
             />

@@ -11,19 +11,23 @@ import { ConfigProvider, theme } from "antd";
 import Database from "./pages/Database";
 import OtherAuthors from "./pages/OutherAuthors";
 import NotFound from "./pages/NotFound";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getThemeFromStorage } from "./services/local-storage-service";
 
 function App() {
 
   const [light, setLight] = useState(false);
 
+
   return (
     <>
-      <ConfigProvider theme={{algorithm: light ? theme.defaultAlgorithm : theme.darkAlgorithm, token:{
-        colorText: light ? "#000" : "#fff",
-        colorBgBase: light ? "#f6f6f9" : "#202528",
-        colorBgContainer: light ? "#f6f6f9" : "#202528"
-      }}}>
+      <ConfigProvider theme={{
+        algorithm: light ? theme.defaultAlgorithm : theme.darkAlgorithm, token: {
+          colorText: light ? "#000" : "#fff",
+          colorBgBase: light ? "#f6f6f9" : "#202528",
+          colorBgContainer: light ? "#f6f6f9" : "#202528"
+        }
+      }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout light={light} setLight={setLight} />}>
@@ -37,7 +41,7 @@ function App() {
             </Route>
             <Route path="/settings" element={<Settings />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="*" element={<NotFound/>} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter><Outlet />
       </ConfigProvider>

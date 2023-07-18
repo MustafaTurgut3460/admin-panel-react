@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faGear, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { ThemeProps } from "../../pages/Layout";
+import { setThemeToLocalStorage } from "../../services/local-storage-service";
 
 const items: MenuProps['items'] = [
     {
@@ -30,9 +31,8 @@ const Topbar: React.FC<ThemeProps> = ({light, setLight}) => {
     );
 
     const setTheme = () => {
+        setThemeToLocalStorage(light ? "dark" : "light");        
         setLight(light => !light)
-        console.log(light);
-        
         document.body.classList.toggle("light-mode-variables")
     }
 
