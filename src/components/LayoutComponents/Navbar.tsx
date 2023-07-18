@@ -5,6 +5,7 @@ import useWindowDimensions from '../../hooks/window-dimention';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDatabase, faDiagramProject, faGauge, faListCheck, faPeopleGroup, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation } from 'react-router-dom';
+import { ThemeProps } from '../../pages/Layout';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -42,7 +43,7 @@ const navs: Map<string, string[]> = new Map([
     ['/tasks', ['7']],
 ])
 
-const Navbar = () => {
+const Navbar: React.FC<ThemeProps> = ({light, setLight}) => {
 
     const { width } = useWindowDimensions();
     const location = useLocation();
@@ -52,10 +53,10 @@ const Navbar = () => {
             <Menu
                 defaultSelectedKeys={navs.get(location.pathname)}
                 mode="inline"
-                theme="dark"
+                theme= {light ? "light" : "dark"}
                 inlineCollapsed={width < 1200}
                 items={items}
-                style={{ backgroundColor: "var(--color-white)", borderRadius: "1rem", height: "90vh" }}
+                style={{ backgroundColor: "var(--color-white)", color: "var(--color-dark)" ,borderRadius: "1rem", height: "90vh" }}
             />
         </div>
     )

@@ -80,7 +80,7 @@ const JobsItem: React.FC<JobsItemProps> = ({ color, text }) => {
             <Col>
                 <Row>
                     <Col>
-                        <FontAwesomeIcon icon={faCheck} style={{ padding: "0.75rem 0.8rem", backgroundColor: itemcolor, borderRadius: "0.5rem", fontSize: "1.2rem" }} />
+                        <FontAwesomeIcon icon={faCheck} style={{ padding: "0.75rem 0.8rem", backgroundColor: itemcolor, borderRadius: "0.5rem", fontSize: "1.2rem"}} color="var(--color-white)"/>
                     </Col>
                     <Col style={{ marginLeft: "0.5rem" }}>
                         <p style={{ fontSize: "0.75rem" }}>Job Title Section</p>

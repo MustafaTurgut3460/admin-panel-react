@@ -23,7 +23,7 @@ const RemindersItem = () => {
             <Col>
                 <Row>
                     <Col>
-                        <FontAwesomeIcon icon={faBell} style={{ padding: "0.75rem 0.8rem", backgroundColor: "#1b9c85", borderRadius: "0.5rem", fontSize: "1.2rem" }} />
+                        <FontAwesomeIcon icon={faBell} color="var(--color-white)" style={{ padding: "0.75rem 0.8rem", backgroundColor: "#1b9c85", borderRadius: "0.5rem", fontSize: "1.2rem" }} />
                     </Col>
                     <Col style={{ marginLeft: "0.5rem" }}>
                         <p style={{ fontSize: "0.75rem" }}>Reminders Title Section</p>

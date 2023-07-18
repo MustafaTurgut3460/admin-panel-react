@@ -3,16 +3,22 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../components/LayoutComponents/Navbar";
 import Topbar from "../components/LayoutComponents/Topbar";
 import Reminders from "../components/LayoutComponents/Reminders";
+import { Dispatch, SetStateAction, useState } from "react";
 
-const Layout = () => {
+export interface ThemeProps{
+    light: boolean,
+    setLight: Dispatch<SetStateAction<boolean>>
+}
+
+const Layout: React.FC<ThemeProps> = ({light, setLight}) => {
 
     return (
         <Row style={{ height: "100vh", width: "100vw", padding: "2rem 1rem"}}>
             <Col xl={3} lg={4} md={4} xs={0} style={{position: "fixed"}}>
-                <Navbar />
+                <Navbar light={light} setLight={setLight}/>
             </Col>
             <Col offset={2} xl={22} md={21} xs={23}>
-                <Topbar />
+                <Topbar light={light} setLight={setLight} />
                 <Row>
                     <Col xs={24} lg={15} xl={19}>
                         <Outlet />

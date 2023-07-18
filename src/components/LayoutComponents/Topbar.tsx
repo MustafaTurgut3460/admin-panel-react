@@ -5,6 +5,7 @@ import avatar1 from "../../assets/images/avatar1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faGear, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { ThemeProps } from "../../pages/Layout";
 
 const items: MenuProps['items'] = [
     {
@@ -19,7 +20,7 @@ const items: MenuProps['items'] = [
     },
 ];
 
-const Topbar = () => {
+const Topbar: React.FC<ThemeProps> = ({light, setLight}) => {
 
     const content = (
         <div>
@@ -27,6 +28,13 @@ const Topbar = () => {
             <p>Content</p>
         </div>
     );
+
+    const setTheme = () => {
+        setLight(light => !light)
+        console.log(light);
+        
+        document.body.classList.toggle("light-mode-variables")
+    }
 
 
     return (
@@ -45,9 +53,9 @@ const Topbar = () => {
                         ]}
                         size="small"
                     />
-                    <Switch checkedChildren="Light" unCheckedChildren="Dark" />
+                    <Switch checkedChildren="Light" unCheckedChildren="Dark" onClick={setTheme}/>
                     <Popover content={content} title="Title" trigger="click" placement="bottomRight">
-                        <Button type="text" shape="circle"><FontAwesomeIcon icon={faBell} fontSize={16} /></Button>
+                        <Button type="text" shape="circle"><FontAwesomeIcon icon={faBell} fontSize={16} color="var(--color-dark)"/></Button>
                     </Popover>
                     <Dropdown menu={{ items }} trigger={['click']}>
                         <Avatar className="profile-avatar" size={36} icon={<img src={avatar1} />} />
