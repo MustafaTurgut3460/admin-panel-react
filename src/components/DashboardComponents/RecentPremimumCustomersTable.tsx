@@ -101,11 +101,74 @@ const data: DataType[] = [
     address: 'Sydney No. 1 Lake Park',
     tags: ['cool', 'teacher'],
   },
+  {
+    key: '7',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York No. 1 Lake Park',
+    tags: ['nice', 'developer'],
+  },
+  {
+    key: '8',
+    name: 'Jim Green',
+    age: 42,
+    address: 'London No. 1 Lake Park',
+    tags: ['loser'],
+  },
+  {
+    key: '9',
+    name: 'Joe Black',
+    age: 32,
+    address: 'Sydney No. 1 Lake Park',
+    tags: ['cool', 'teacher'],
+  },
+  {
+    key: '10',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York No. 1 Lake Park',
+    tags: ['nice', 'developer'],
+  },
+  {
+    key: '11',
+    name: 'Jim Green',
+    age: 42,
+    address: 'London No. 1 Lake Park',
+    tags: ['loser'],
+  },
+  {
+    key: '12',
+    name: 'Joe Black',
+    age: 32,
+    address: 'Sydney No. 1 Lake Park',
+    tags: ['cool', 'teacher'],
+  },
+  {
+    key: '13',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York No. 1 Lake Park',
+    tags: ['nice', 'developer'],
+  },
+  {
+    key: '14',
+    name: 'Jim Green',
+    age: 42,
+    address: 'London No. 1 Lake Park',
+    tags: ['loser'],
+  },
+  {
+    key: '16',
+    name: 'Joe Black',
+    age: 32,
+    address: 'Sydney No. 1 Lake Park',
+    tags: ['cool', 'teacher'],
+  },
 ];
 
 const RecentPremiumCustomersTable = () => {
   const { width } = useWindowDimensions();
-  return <Table columns={columns} dataSource={data} style={{ backgroundColor: width > 576 ? "var(--color-white)" : "" }} />
+  return <Table columns={columns} pagination={{pageSize: 10}} dataSource={data} style={{ backgroundColor: width > 576 ? "var(--color-white)" : "" }} />
 }
 
 export default RecentPremiumCustomersTable;

@@ -5,7 +5,8 @@ import useWindowDimensions from '../../hooks/window-dimention';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDatabase, faDiagramProject, faGauge, faListCheck, faPeopleGroup, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation } from 'react-router-dom';
-import { ThemeProps } from '../../pages/Layout';
+import { ThemeState, Themes } from '../../actions/themeAction';
+import { useSelector } from 'react-redux';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -44,22 +45,22 @@ const navs: Map<string, string[]> = new Map([
 ])
 
 interface NavbarProps{
-    light: boolean,
-    setLight: Dispatch<SetStateAction<boolean>>
     inDrawer: boolean
 }
 
-const Navbar: React.FC<NavbarProps> = ({light, setLight, inDrawer}) => {
+const Navbar: React.FC<NavbarProps> = ({inDrawer}) => {
 
     const { width } = useWindowDimensions();
     const location = useLocation();
+
+    const theme = useSelector((state: ThemeState) => state.theme);
 
     return (
         <div>
             <Menu
                 defaultSelectedKeys={navs.get(location.pathname)}
                 mode="inline"
-                theme= {light ? "light" : "dark"}
+                theme= {theme === Themes.Dark ? "dark" : "light"}
                 inlineCollapsed={(!inDrawer && width < 1200)}
                 items={items}
                 style={{ backgroundColor: "var(--color-white)", color: "var(--color-dark)" ,borderRadius: "1rem", height: "90vh" }}

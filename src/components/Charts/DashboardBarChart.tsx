@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -9,6 +9,7 @@ import {
     Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import BigModal from '../BigModal';
 
 
 ChartJS.register(
@@ -59,8 +60,17 @@ export const data = {
 
 
 const DashboardBarChart = () => {
+    const [open, setOpen] = useState(false);
 
-    return <Bar options={options} data={data}/>;
+    return (
+
+
+        <><Bar options={options} data={data} onClick={() => setOpen(true)} />
+        <BigModal element={<Bar options={options} data={data}/>} open={open} setOpen={setOpen} title='Aylara Göre Erişim Miktarı Detay' /></>
+
+
+
+    );
 
 }
 

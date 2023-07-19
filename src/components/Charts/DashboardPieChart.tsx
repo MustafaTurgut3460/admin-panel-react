@@ -1,5 +1,7 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import BigModal from '../BigModal';
+import { useState } from 'react';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -31,7 +33,15 @@ export const data = {
 };
 
 const DashboardPieChart = () => {
-    return <Pie data={data} />;
+    const [open, setOpen] = useState(false);
+
+    return (
+        <>
+            <Pie data={data} onClick={() => setOpen(true)}/>
+            <BigModal element={<Pie data={data} />} open={open} setOpen={setOpen} title='Aylara Göre Erişim Miktarı Detay' />
+
+        </>
+    );
 }
 
 export default DashboardPieChart;

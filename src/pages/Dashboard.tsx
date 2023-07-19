@@ -1,23 +1,48 @@
-import { Col, Progress, Row, Typography } from "antd";
+import { Col, Dropdown, MenuProps, Modal, Progress, Row, Typography, message } from "antd";
 import DashboardLineChart from "../components/Charts/DashboardLineChart";
 import DashboardPieChart from "../components/Charts/DashboardPieChart";
 import RecentPremiumCustomersTable from "../components/DashboardComponents/RecentPremimumCustomersTable";
 import useWindowDimensions from "../hooks/window-dimention";
 import DashboardBarChart from "../components/Charts/DashboardBarChart";
 import DashboardAreaChart from "../components/Charts/DashboardAreaChart";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const { Paragraph, Title } = Typography;
 
+const items: MenuProps['items'] = [
+    {
+        label: 'Tabloyu İncele',
+        key: '1',
+        icon: <FontAwesomeIcon icon={faMagnifyingGlass} />
+    },
+];
+
+
 const Dashboard = () => {
 
+    const [open, setOpen] = useState(false);
+    const { t } = useTranslation();
     const { width } = useWindowDimensions();
+
+    const handleMenuClick: MenuProps['onClick'] = (e) => {
+        setOpen(true);
+    };
+
+    const menuProps = {
+        items,
+        onClick: handleMenuClick,
+    };
+
 
     return (
         <><Row justify={'space-around'} style={{ padding: "1rem" }}>
             <Col xl={7} xs={23} className="card">
                 <Row>
                     <Col span={12}>
-                        <span>Okunan Belge</span>
+                        <span>{t("DASHBOARD.CARDS.TOTAL_USER")}</span>
                         <h2>45,678</h2>
                     </Col>
                     <Col span={12} style={{ display: "flex", justifyContent: "end" }}>
@@ -68,12 +93,25 @@ const Dashboard = () => {
                 </Col>
             </Row>
             <Row style={{ padding: "1rem 2rem" }}>
-                <Col span={24} className={width > 576 ? "card" : ""} style={{ padding: "1.5rem" }}>
-                    <h3>Recent Premimum Customers</h3>
-                    <br />
-                    <RecentPremiumCustomersTable />
-                </Col>
+                <Dropdown menu={menuProps} trigger={["contextMenu"]}>
+                    <Col span={24} className={width > 576 ? "card" : ""} style={{ padding: "1.5rem" }}>
+                        <h3>Recent Premimum Customers</h3>
+                        <br />
+                        <RecentPremiumCustomersTable />
+                    </Col>
+                </Dropdown>
             </Row>
+            {/* MODAL */}
+            <Modal
+                title="Modal 1000px width"
+                centered
+                open={open}
+                onOk={() => setOpen(false)}
+                onCancel={() => setOpen(false)}
+                width={'100%'}
+            >
+                <RecentPremiumCustomersTable />
+            </Modal>
         </>
     )
 }

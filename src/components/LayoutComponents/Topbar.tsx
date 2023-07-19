@@ -5,8 +5,9 @@ import avatar1 from "../../assets/images/avatar1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faGear, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { ThemeProps } from "../../pages/Layout";
 import { setThemeToLocalStorage } from "../../services/local-storage-service";
+import { useDispatch, useSelector } from "react-redux";
+import { ThemeState, Themes, setTheme } from "../../actions/themeAction";
 
 const items: MenuProps['items'] = [
     {
@@ -21,7 +22,10 @@ const items: MenuProps['items'] = [
     },
 ];
 
-const Topbar: React.FC<ThemeProps> = ({light, setLight}) => {
+const Topbar = () => {
+
+    const theme = useSelector((state: any) => state.theme);
+    const dispatch = useDispatch()
 
     const content = (
         <div>
@@ -30,9 +34,9 @@ const Topbar: React.FC<ThemeProps> = ({light, setLight}) => {
         </div>
     );
 
-    const setTheme = () => {
-        setThemeToLocalStorage(light ? "dark" : "light");        
-        setLight(light => !light)
+    const configureTheme = () => {
+        setThemeToLocalStorage(theme.theme);      
+        dispatch(setTheme(theme.theme === Themes.Dark ? Themes.Light : Themes.Dark))
         document.body.classList.toggle("light-mode-variables")
     }
 
@@ -53,7 +57,7 @@ const Topbar: React.FC<ThemeProps> = ({light, setLight}) => {
                         ]}
                         size="small"
                     />
-                    <Switch checkedChildren="Light" unCheckedChildren="Dark" onClick={setTheme}/>
+                    <Switch checkedChildren="Light" unCheckedChildren="Dark" onClick={configureTheme}/>
                     <Popover content={content} title="Title" trigger="click" placement="bottomRight">
                         <Button type="text" shape="circle"><FontAwesomeIcon icon={faBell} fontSize={16} color="var(--color-dark)"/></Button>
                     </Popover>

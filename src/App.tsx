@@ -13,11 +13,14 @@ import OtherAuthors from "./pages/OutherAuthors";
 import NotFound from "./pages/NotFound";
 import { useEffect, useState } from "react";
 import { getThemeFromStorage } from "./services/local-storage-service";
+import { useSelector } from "react-redux";
+import { ThemeState, Themes } from "./actions/themeAction";
 
 function App() {
 
-  const [light, setLight] = useState(false);
+  const themeSelector = useSelector((state: any) => state.theme);
 
+  var light: boolean = themeSelector.theme === Themes.Light
 
   return (
     <>
@@ -30,7 +33,7 @@ function App() {
       }}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout light={light} setLight={setLight} />}>
+            <Route path="/" element={<Layout/>}>
               <Route index element={<Dashboard />} />
               <Route path="database" element={<Database />} />
               <Route path="projects" element={<Projects />} />

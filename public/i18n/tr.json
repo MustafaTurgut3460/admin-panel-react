@@ -1,0 +1,75 @@
+{
+    "DASHBOARD": {
+        "CARDS": {
+            "TOTAL_AMOUNT": "Toplam Kazanç",
+            "TOTAL_USER": "Toplam Kullanıcı",
+            "TOTAL_VIEWS": "Toplam Ziyaret"
+        },
+        "CHARTS": {
+            "LINE_CHART_TITLE": "Aylara Göre Erişim Miktarı",
+            "AREA_CHART_TITLE": "Aylara Göre Yeni Kullanıcı Sayısı",
+            "BAR_CHART_TITLE": "Aylara Göre Veritabanı İşlemleri"
+        },
+        "TABLES": {
+            "TABLE_TITLE": "En Son Premium Kullanıcılar",
+            "COLUMNS": {
+                "NAME": "Ad Soyad",
+                "AGE": "Yaş",
+                "ADDRESS": "Adres",
+                "TAGS": "Etiketler",
+                "ACTION": "İşlemler" 
+            }
+        }
+    },
+    "REMINDERS": {
+        "TASKS_TITLE": "Görevlerim",
+        "TASKS_ADD": "Görev Ekle",
+        "TASKS_TAGS": {
+            "NOT_START": "Başlanmadı",
+            "PROGRESS": "Yapılıyor",
+            "COMPLATE": "Tamamlandı",
+            "CANCEL": "İptal Edildi"
+        },
+        "REMINDER_ADD": "Hatırlatıcı Ekle",
+        "REMINDERS_TITLE": "Hatırlatıcılar",
+        "REMINDER_MENU": {
+            "DETAIL": "Detaylar",
+            "REMOVE": "Kaldır"
+        }
+    },
+    "MONTHS": {
+        "JAN": "Ocak",
+        "FEB": "Şubat",
+        "MAR": "Mart",
+        "APRIL": "Nisan",
+        "MAYY": "Mayıs",
+        "JUNE": "Haziran",
+        "JULY": "Temmuz",
+        "AUG": "Ağustos",
+        "SEP": "Eylül",
+        "OCT": "Ekim",
+        "NOV": "Kasım",
+        "DEC": "Aralık"
+    },
+    "USERS": {
+        "SEARCH_HINT": "Kullanıcı Ara",
+        "TABLE": {
+            "NAME": "Ad Soyad",
+            "AGE": "Yaş",
+            "CLASS_COUNT": "Sınıf Sayısı",
+            "MEMBER_TYPE": "Üyelik Türü",
+            "ACTION": "İşlemler"
+        } 
+    },
+    "DATABASE": {
+        "CARDS": {
+            "DOC_READ": "Okunan Veri",
+            "WRITE_DOC": "Yazılan Veri",
+            "DELETE_DOC": "Silinen Veri"
+        },
+        "CHARTS": {
+            "AREA_CHART_TITLE":"Aylara Göre Yeni Kullanıcılar",
+            "LINE_CHART_TITLE": "Aylara Göre Kazanç Miktarı"
+        }
+    }
+}
