@@ -50,3 +50,14 @@ body {
 .profile-avatar:hover{
   cursor: pointer;
 }
+
+.login-input{
+  padding: 0.66rem;
+  border: none;
+  background-color: rgb(219, 219, 219);
+  border-radius: 0.4rem;
+  width: 40%;
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+}

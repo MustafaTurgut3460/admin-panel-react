@@ -9,7 +9,9 @@ import {
   Filler,
   Legend,
 } from 'chart.js';
+import { useState } from 'react';
 import { Line } from 'react-chartjs-2';
+import BigModal from '../BigModal';
 
 ChartJS.register(
   CategoryScale,
@@ -49,18 +51,23 @@ export const data = {
       tension: 0.4
     },
     {
-        fill: true,
-        label: 'Yeni Premium Kullanıcı Sayısı',
-        data: [120, 144, 122, 85, 90, 110, 221],
-        borderColor: 'rgb(38, 231, 70)',
-        backgroundColor: 'rgba(38, 231, 70, 0.5)',
-        tension: 0.4
-      },
+      fill: true,
+      label: 'Yeni Premium Kullanıcı Sayısı',
+      data: [120, 144, 122, 85, 90, 110, 221],
+      borderColor: 'rgb(38, 231, 70)',
+      backgroundColor: 'rgba(38, 231, 70, 0.5)',
+      tension: 0.4
+    },
   ],
 };
 
 const DatabaseAreaChart = () => {
-    return <Line options={options} data={data} style={{marginTop: "1rem"}}/>;
+  const [open, setOpen] = useState(false);
+
+  return <>
+    <Line options={options} data={data} style={{ marginTop: "1rem" }} onClick={() => setOpen(true)} />;
+    <BigModal element={<Line options={options} data={data}/>} open={open} setOpen={setOpen} title='Aylara Göre Yeni Kullanıcılar'/>
+  </>
 }
 
 export default DatabaseAreaChart;

@@ -3,7 +3,7 @@ import { Button, Menu } from 'antd';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import useWindowDimensions from '../../hooks/window-dimention';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDatabase, faDiagramProject, faGauge, faListCheck, faPeopleGroup, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faDatabase, faDiagramProject, faGauge, faListCheck, faPeopleGroup, faUser, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation } from 'react-router-dom';
 import { ThemeState, Themes } from '../../actions/themeAction';
 import { useSelector } from 'react-redux';
@@ -28,7 +28,10 @@ function getItem(
 
 const items: MenuItem[] = [
     getItem(<Link to={'/'}>Dashboard</Link>, '1', <FontAwesomeIcon icon={faGauge} />),
-    getItem(<Link to={'/users'}>Users</Link>, '3', <FontAwesomeIcon icon={faUserPlus} />),
+    getItem(<span>Users</span>, '3', <FontAwesomeIcon icon={faUsers} />, [
+        getItem(<Link to={'/premium-users'}>Premimum</Link>, '9', <FontAwesomeIcon icon={faUserPlus} />),
+        getItem(<Link to={'/users'}>Normal</Link>, '10', <FontAwesomeIcon icon={faUser} />)
+    ]),
     getItem(<Link to={'/database'}>Database</Link>, '8', <FontAwesomeIcon icon={faDatabase} />),
     getItem(<Link to={'/projects'}>Projects</Link>, '2', <FontAwesomeIcon icon={faDiagramProject} />),
     getItem(<Link to={'/team'}>Team</Link>, '5', <FontAwesomeIcon icon={faPeopleGroup} />),

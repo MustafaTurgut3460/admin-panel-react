@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -10,6 +10,7 @@ import {
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import BigModal from '../BigModal';
 
 ChartJS.register(
     CategoryScale,
@@ -64,7 +65,13 @@ export const options = {
 
 
 const DatabaseLineChart = () => {
-    return  <Line options={options} data={data} />;
+    const [open, setOpen] = useState(false);
+
+
+    return <>
+        <Line options={options} data={data} onClick={() => setOpen(true)}/>
+        <BigModal element={<Line options={options} data={data} />} open={open} setOpen={setOpen} title='Aylara Göre Kazanç Miktarı' />
+    </>;
 };
 
 export default DatabaseLineChart;
