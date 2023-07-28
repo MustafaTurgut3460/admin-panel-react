@@ -64,7 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({inDrawer}) => {
                 defaultSelectedKeys={navs.get(location.pathname)}
                 mode="inline"
                 theme= {theme === Themes.Dark ? "dark" : "light"}
-                inlineCollapsed={(!inDrawer && width < 1200)}
+                inlineCollapsed={(!inDrawer && width < 1700)}
                 items={items}
                 style={{ backgroundColor: "var(--color-white)", color: "var(--color-dark)" ,borderRadius: "1rem", height: "90vh" }}
             />
