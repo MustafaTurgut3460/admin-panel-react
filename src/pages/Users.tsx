@@ -31,14 +31,17 @@ const Users = () => {
     };
 
     return (
-        <><Dropdown menu={menuProps} trigger={["contextMenu"]}>
-            <Row>
-                <Col style={{ marginLeft: "2rem", padding: (height + width) / 60 }} xxl={23} sm={22} className="card">
-                    <UserTable scrollY={height/3}/>
-                </Col>
-            </Row>
-        </Dropdown>
-            <BigModal element={<UserTable scrollY={height/1.5}/>} open={open} setOpen={setOpen} title={''} /></>
+        <>
+            <Dropdown menu={menuProps} trigger={["contextMenu"]}>
+                <Row>
+                    <Col style={{ marginLeft: width < 576 ? "0rem" : "2rem", padding: (height + width) / 100 }} xxl={23} xs={23} className="card">
+                        <UserTable scrollY={height / 2} />
+                    </Col>
+                </Row>
+            </Dropdown>
+            <BigModal element={<UserTable scrollY={height / 1.5} />} open={open} setOpen={setOpen} title={''} />
+
+        </>
     )
 }
 

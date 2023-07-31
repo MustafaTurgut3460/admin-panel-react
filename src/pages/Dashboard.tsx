@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import UserTable from "../components/UsersComponents/UserTable";
 
 const { Paragraph, Title } = Typography;
 
@@ -25,7 +26,7 @@ const Dashboard = () => {
 
     const [open, setOpen] = useState(false);
     const { t } = useTranslation();
-    const { width } = useWindowDimensions();
+    const { width, height } = useWindowDimensions();
 
     const handleMenuClick: MenuProps['onClick'] = (e) => {
         setOpen(true);
@@ -39,7 +40,7 @@ const Dashboard = () => {
 
     return (
         <><Row justify={'space-around'} style={{ padding: "1rem" }}>
-            <Col xl={7} xs={23} className="card">
+            <Col xxl={5} xl={11} xs={23} className="card">
                 <Row>
                     <Col span={12}>
                         <span>{t("DASHBOARD.CARDS.TOTAL_USER")}</span>
@@ -50,7 +51,7 @@ const Dashboard = () => {
                     </Col>
                 </Row>
             </Col>
-            <Col xl={7} xs={23} className="card">
+            <Col xxl={5} xl={11} xs={23} className="card">
                 <Row>
                     <Col span={12}>
                         <span>Total Amount</span>
@@ -61,7 +62,18 @@ const Dashboard = () => {
                     </Col>
                 </Row>
             </Col>
-            <Col xl={7} xs={23} className="card">
+            <Col xxl={5} xl={11} xs={23} className="card">
+                <Row>
+                    <Col span={12}>
+                        <span>Total Amount</span>
+                        <h2>65,234₺</h2>
+                    </Col>
+                    <Col span={12} style={{ display: "flex", justifyContent: "end" }}>
+                        <Progress type="dashboard" percent={40} size={84} format={(percent) => `+${percent}%`} status="success" />
+                    </Col>
+                </Row>
+            </Col>
+            <Col xxl={5} xl={11} xs={23} className="card">
                 <Row>
                     <Col span={12}>
                         <span>Total Amount</span>
@@ -97,7 +109,7 @@ const Dashboard = () => {
                     <Col span={24} className={width > 576 ? "card" : ""} style={{ padding: "1.5rem" }}>
                         <h3>Recent Premimum Customers</h3>
                         <br />
-                        <RecentPremiumCustomersTable />
+                        <UserTable scrollY={height/2} />
                     </Col>
                 </Dropdown>
             </Row>
@@ -110,7 +122,7 @@ const Dashboard = () => {
                 onCancel={() => setOpen(false)}
                 width={'100%'}
             >
-                <RecentPremiumCustomersTable />
+                <UserTable scrollY={height/1.5} />
             </Modal>
         </>
     )

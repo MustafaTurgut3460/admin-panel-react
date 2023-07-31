@@ -76,10 +76,7 @@ const Topbar = () => {
 
 
     return (
-        <Row style={{ padding: "1rem", marginLeft: "1rem", marginRight: "1rem" }} justify={'space-between'}>
-            <Col xs={0} md={4}>
-                <Search placeholder="Search anything" />
-            </Col>
+        <Row style={{ padding: "1rem", marginRight: "1rem"}} justify={'end'}>
             <Col xs={24} md={20}>
                 <Space size={16} style={{ display: "flex", justifyContent: "end" }}>
                     <Select

@@ -28,7 +28,7 @@ function App() {
     <>
       <ConfigProvider theme={{
         algorithm: light ? theme.defaultAlgorithm : theme.darkAlgorithm, token: {
-          colorText: light ? "#000" : "#fff",
+          colorText: light ? "#000" : "#d1d1d1",
           colorBgBase: light ? "#f6f6f9" : "#202528",
           colorBgContainer: light ? "#f6f6f9" : "#202528"
         }
